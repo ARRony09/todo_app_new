@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{% block title %} Current todo {% endblock title %}
+
+{% block currentactive %}active{% endblock currentactive %}
+
+{% block body %}
+
+<div class="container my-3">
+<h3><b>Title: </b></h3>
+{{new_todo.title}}
+<h3><b>Memo: </b></h3>
+{{new_todo.memo}}
+</div>
+{% if new_todo.datecompleted is not none%}
+<div class="container">
+    <a href="/todo_details/{{new_todo.id}}/delete"<button class="btn btn-danger" type="submit">Delete</button></a>
+</div>
+    
+{%else%}
+<div class="container">
+    <a href="/todo_details/{{new_todo.id}}/delete"<button class="btn btn-danger" type="submit">Delete</button></a>
+    <a href="/todo_details/{{new_todo.id}}/completetodo" <button class="btn btn-info" type="submit">Complete</button></a>
+</div>
+{% endif %}
+
+
+{% endblock %}

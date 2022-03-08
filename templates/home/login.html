@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block title %} Current todo {% endblock title %}
+
+{% block loginactive %}active{% endblock loginactive %}
+
+{%block body%}
+<div style="width:770px; margin:150px auto;">
+ 
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username" Required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" Required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

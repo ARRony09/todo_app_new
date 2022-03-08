@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% block title %} Complete todo {% endblock title %}
+
+{% block completeactive %}active{% endblock completeactive %}
+
+{%block body%}
+<div class="container my-3">
+         
+    <h3 class="text-center">View Completed Todo</h3>
+    <div class="row justify-content-center mt-5">
+    {% for todo in completedtodos %}
+    
+    <ul class="list-group">
+        <a href="todo_details/{{todo.id}}" class="list-group-item list-group-item-action">
+        <b>{{todo.title}}</b>
+         - {{todo.memo|truncatechars:200}}
+         - {{todo.datecompleted|date:'M j Y H:i'}}
+        </a>
+    </ul>
+    
+    {% endfor %}
+    
+    </div>
+{% endblock %}

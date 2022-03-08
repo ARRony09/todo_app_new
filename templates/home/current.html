@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% block title %} Current todo {% endblock title %}
+
+{% block currentactive %}active{% endblock currentactive %}
+
+{%block body%}
+
+<div class="container my-3">
+         
+    <h3 class="text-center">View Current Todo</h3>
+    <div class="row justify-content-center mt-5">
+
+    {% for todo in alltodos %}
+  
+        <ul class="list-group">
+            <a href="todo_details/{{todo.id}}" class="list-group-item list-group-item-action">
+                {%if todo.important%}<b>{% endif %}{{todo.title}}</b>
+                - {{todo.memo|truncatechars:200}}
+            </a>
+        </ul>
+    
+    {% endfor %}
+    
+    </div>
+    
+        </div>
+
+{% endblock %}

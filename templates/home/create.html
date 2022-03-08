@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Create todo {% endblock title %}
+
+{% block createactive %}active{% endblock createactive %}
+
+{%block body%}
+
+
+<div class="container my-3">
+    <form action="/create" method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="memo">Memo: </label>
+        <textarea name="memo" cols="40" rows="10" id="memo"></textarea>
+        <p><label for="check_important">Important: </label> <input type="checkbox" name="check_important" id="check_important"></p>
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form> 
+
+</div>
+{% endblock %}
